@@ -4,28 +4,6 @@ class Cities extends Component {
   state = {
     remoteCities: [],
   };
-  getWeatherIcon = (weatherMain) => {
-    switch (weatherMain) {
-      case "Clear":
-        return "bi bi-sun-fill";
-      case "Clouds":
-        return "bi bi-cloud-fill";
-      case "Rain":
-        return "bi bi-cloud-rain-fill";
-      case "Thunderstorm":
-        return "bi bi-cloud-lightning-rain-fill";
-      case "Snow":
-        return "bi bi-snow";
-      case "Drizzle":
-        return "bi bi-cloud-drizzle";
-      case "Mist":
-      case "Fog":
-      case "Haze":
-        return "bi bi-cloud-fog2-fill";
-      default:
-        return "bi bi-question-circle";
-    }
-  };
 
   fetchCities = () => {
     const cityList = [
@@ -75,15 +53,8 @@ class Cities extends Component {
                   <Card.Body>
                     <Card.Title>Meteo Attuale</Card.Title>
                     <Card.Text>
-                      <i className="bi bi-thermometer-half"></i> Temperatura:{" "}
-                      {cityData.main.temp}°C
-                      <br />
-                      <i
-                        className={this.getWeatherIcon(
-                          cityData.weather[0].main
-                        )}
-                      ></i>{" "}
-                      {cityData.weather[0].main}
+                      Temperatura: {cityData.main.temp}°C
+                      <br /> {cityData.weather[0].main}
                     </Card.Text>
                   </Card.Body>
                 </Card>
